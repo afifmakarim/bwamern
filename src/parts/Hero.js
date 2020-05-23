@@ -7,6 +7,7 @@ import imageHero_ from 'assets/images/img-hero-frame.jpg'
 import Button from 'elements/Button'
 
 import numberFormat from 'utils/formatNumber'
+import Fade from 'react-reveal/Fade';
 
 export default function Hero(props) {
 
@@ -18,6 +19,7 @@ export default function Hero(props) {
     }
 
     return (
+        <Fade>
         <section className="container pt-4">
             <div className="row align-items-center">
                 <div className="col-auto pr-5" style={{ width: 530 }}>
@@ -73,5 +75,6 @@ export default function Hero(props) {
                 </div>
             </div>
         </section>
+        </Fade>
     )
 }
