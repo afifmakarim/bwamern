@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+
 import propTypes from "prop-types"
 import Button from "elements/Button"
 import InputNumber from "elements/Form/InputNumber"
 import InputDate from "elements/Form/InputDate"
 
 
-export default class BookingForm extends Component {
+class BookingForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -45,8 +47,8 @@ export default class BookingForm extends Component {
         }
 
         if (prevState.data.duration !== data.duration) {
-            const starDate = new Date(data.date.startDate);
-            const endDate = new Date(starDate.setDate(starDate.getDate() + + data.duration - 1));
+            const startDate = new Date(data.date.startDate);
+            const endDate = new Date(startDate.setDate(startDate.getDate() + + data.duration - 1));
             this.setState({
                 ...this.state,
                 data: {
@@ -58,6 +60,19 @@ export default class BookingForm extends Component {
                 }
             });
         }
+    }
+
+    startBooking = () => {
+        const { data } = this.state
+        this.props.startBooking({
+            _id: this.props.itemDetails._id,
+            duration: data.duration,
+            date: {
+                startDate: data.date.startDate,
+                endDate: data.date.endDate,
+            },
+        })
+        this.props.history.push("/checkout");
     }
 
     render() {
@@ -91,7 +106,7 @@ export default class BookingForm extends Component {
                 </span>
             </h6>
         
-            <Button className="btn" hasShadow isPrimary isBlock onClick={startBooking}>Continue to Book</Button>
+            <Button className="btn" hasShadow isPrimary isBlock onClick={this.startBooking}>Continue to Book</Button>
         </div>
         );
     }
@@ -101,3 +116,5 @@ BookingForm.propTypes = {
     itemDetails: propTypes.object,
     startBooking: propTypes.func
 };
+
+export default withRouter(BookingForm)

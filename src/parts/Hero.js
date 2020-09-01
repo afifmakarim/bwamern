@@ -50,7 +50,7 @@ export default function Hero(props) {
                         <div className="col-auto">
                             <FontAwesomeIcon size="sm" icon={faCamera} alt={`${props.data.treasures}`}/>
                             <h6 className="mt-3">
-                                {numberFormat(props.data.treasures)} <span className="text-gray-500 font-weight-light">
+                                {numberFormat(props.data.treasure)} <span className="text-gray-500 font-weight-light">
                                     Treasures
                                 </span>
                             </h6>
@@ -58,7 +58,7 @@ export default function Hero(props) {
                         <div className="col-auto">
                             <FontAwesomeIcon size="sm" icon={faMapMarked} alt={`${props.data.cities}`}/>
                             <h6 className="mt-3">
-                                {numberFormat(props.data.cities)} <span className="text-gray-500 font-weight-light">
+                                {numberFormat(props.data.city)} <span className="text-gray-500 font-weight-light">
                                     Cities
                                 </span>
                             </h6>
