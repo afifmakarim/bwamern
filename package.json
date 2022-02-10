@@ -12,7 +12,7 @@
     "axios": "^0.20.0",
     "cors": "^2.8.5",
     "date-fns": "^2.14.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-date-range": "^1.0.3",
     "react-dom": "^16.13.1",
